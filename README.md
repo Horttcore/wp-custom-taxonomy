@@ -2,7 +2,7 @@
 
 ## Installation
 
-`composer require Horttcore\wp-custom-taxonomy`
+`composer require horttcore\wp-custom-taxonomy`
 
 ## Usage
 
@@ -31,6 +31,22 @@ class Bar extends Taxonomy {
     function getConfig(): array
     {
         return [
+            'description'        => __('Lorem Ipsum …', 'textdomain'),
+            'public'             => false,
+            'publicly_queryable' => true,
+            'hierarchical'       => false,
+            'show_ui'            => true,
+            'show_in_menu'       => true,
+            'show_in_nav_menus'  => false,
+            'show_in_rest'       => true,
+            'rest_base'          => 'bars',
+            'show_tagcloud'      => true,
+            'show_in_quick_edit' => false,
+            'show_admin_column'  => true,
+            'rewrite'            => [
+                'slug'       => _x('bars', 'Taxonomy slug', 'textdomain'),
+                'with_front' => false,
+            ]
         ];
     }
 
