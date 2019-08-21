@@ -12,6 +12,7 @@ Extend the abstract class `Taxonomy` and overwrite following methods:
 * `getLabels()`
 
 The extending class _MUST_ define protected class variable `slug`
+The extending class _MUST_ define protected class variable `postTypes`
 
 ### Example
 
@@ -24,6 +25,8 @@ use Horttcore\CustomTaxonomy\Taxonomy;
 class Bar extends Taxonomy {
 
     $slug = 'bar';
+    
+    $postTypes = ['post'];
 
     function getConfig(): array
     {
