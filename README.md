@@ -26,7 +26,7 @@ class Bar extends Taxonomy {
 
     protected $slug = 'bar';
     
-    proteced $postTypes = ['post'];
+    protected $postTypes = ['post'];
 
     function getConfig(): array
     {
