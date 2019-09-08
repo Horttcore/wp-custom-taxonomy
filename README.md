@@ -24,9 +24,9 @@ use Horttcore\CustomTaxonomy\Taxonomy;
 
 class Bar extends Taxonomy {
 
-    $slug = 'bar';
+    protected $slug = 'bar';
     
-    $postTypes = ['post'];
+    proteced $postTypes = ['post'];
 
     function getConfig(): array
     {
