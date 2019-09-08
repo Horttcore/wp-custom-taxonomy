@@ -2,7 +2,7 @@
 
 ## Installation
 
-`composer require horttcore\wp-custom-taxonomy`
+`composer require horttcore/wp-custom-taxonomy`
 
 ## Usage
 
