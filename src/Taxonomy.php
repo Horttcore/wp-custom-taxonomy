@@ -1,28 +1,25 @@
 <?php
+
 namespace Horttcore\CustomTaxonomy;
 
 abstract class Taxonomy
 {
-
-
     /**
-     * Taxonomy slug
-     * 
-     * @var string $slug Taxonomy slug
+     * Taxonomy slug.
+     *
+     * @var string Taxonomy slug
      */
     protected $slug = '';
 
-
     /**
-     * Attach taxonomy to this post types
-     * 
+     * Attach taxonomy to this post types.
+     *
      * @var array<string> postType Array of post types
      */
     protected $postTypes = [];
 
-
     /**
-     * Register hooks
+     * Register hooks.
      *
      * @since 1.0.0
      **/
@@ -31,21 +28,20 @@ abstract class Taxonomy
         add_action('init', [$this, 'registerTaxonomy']);
     }
 
-
     /**
-     * Get taxonomy slug
-     * 
+     * Get taxonomy slug.
+     *
      * @return string
+     *
      * @since 1.0.0
      **/
-    protected function getTaxonomySlug() : string
+    protected function getTaxonomySlug(): string
     {
         return $this->slug;
     }
 
-
     /**
-     * Register taxonomy
+     * Register taxonomy.
      *
      * @return WP_Error|void
      **/
@@ -57,21 +53,17 @@ abstract class Taxonomy
         return register_taxonomy($this->getTaxonomySlug(), $this->postTypes, $args);
     }
 
-
     /**
-     * Get taxonomy configuration
+     * Get taxonomy configuration.
      *
      * @return array
      **/
-    abstract function getConfig(): array;
-
+    abstract public function getConfig(): array;
 
     /**
-     * Get taxonomy labels
+     * Get taxonomy labels.
      *
      * @return array
      **/
-    abstract function getLabels(): array;
-
-
+    abstract public function getLabels(): array;
 }
