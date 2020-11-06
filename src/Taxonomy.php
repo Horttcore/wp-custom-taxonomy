@@ -1,4 +1,5 @@
 <?php
+
 namespace RalfHortt\CustomTaxonomy;
 
 use RalfHortt\TranslatorService\Translator;
@@ -9,7 +10,7 @@ abstract class Taxonomy
     protected $postTypes = [];
     protected $useFilter = true;
 
-    function __construct()
+    public function __construct()
     {
         (new Translator('wp-custom-taxonomy', dirname(plugin_basename(__FILE__)).'/../languages/'))->register();
     }
@@ -18,12 +19,12 @@ abstract class Taxonomy
     {
         \add_action('init', [$this, 'registerTaxonomy']);
 
-        if ( $this->useFilter ) {
+        if ($this->useFilter) {
             \add_action('restrict_manage_posts', [$this, 'taxonomyFilter']);
         }
     }
 
-    protected function getTaxonomySlug() : string
+    protected function getTaxonomySlug(): string
     {
         return $this->slug;
     }
@@ -36,9 +37,9 @@ abstract class Taxonomy
         return \register_taxonomy($this->getTaxonomySlug(), $this->postTypes, $args);
     }
 
-    abstract function getConfig(): array;
+    abstract public function getConfig(): array;
 
-    abstract function getLabels(): array;
+    abstract public function getLabels(): array;
 
     public function taxonomyFilter()
     {
@@ -46,7 +47,7 @@ abstract class Taxonomy
         if (in_array($typenow, $this->postTypes)) {
             $labels = $this->getLabels();
             \wp_dropdown_categories([
-                'show_option_all' => sprintf( _x( 'Show all %s', 'Show all terms', 'wp-custom-taxonomy' ), $labels['name'] ),
+                'show_option_all' => sprintf(_x('Show all %s', 'Show all terms', 'wp-custom-taxonomy'), $labels['name']),
                 'taxonomy'        => $this->slug,
                 'name'            => $this->slug,
                 'orderby'         => 'name',
@@ -54,8 +55,8 @@ abstract class Taxonomy
                 'show_count'      => true,
                 'hide_empty'      => true,
                 'hide_if_empty'   => true,
-                'value_field'     => 'slug'
+                'value_field'     => 'slug',
             ]);
-        };
+        }
     }
 }
