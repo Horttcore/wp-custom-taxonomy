@@ -13,6 +13,7 @@ Extend the abstract class `Taxonomy` and overwrite following methods:
 
 The extending class _MUST_ define protected class variable `slug`
 The extending class _MUST_ define protected class variable `postTypes`
+The extending class _CAN_ define protected class variable  `useFilters`
 
 ### Example
 
@@ -20,12 +21,11 @@ The extending class _MUST_ define protected class variable `postTypes`
 <?php
 namespace Foo;
 
-use Horttcore\CustomTaxonomy\Taxonomy;
+use RalfHortt\CustomTaxonomy\Taxonomy;
 
 class Bar extends Taxonomy {
 
     protected $slug = 'bar';
-    
     protected $postTypes = ['post'];
 
     function getConfig(): array
@@ -78,3 +78,14 @@ class Bar extends Taxonomy {
     }
 }
 ```
+
+## Changelog
+
+### 2.0 - 2020/11/06
+
+* Changing namespace
+* Adding admin column filters
+
+### 1.0 - 2019/01/16
+
+* Initial release

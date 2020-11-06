@@ -1,5 +1,5 @@
 {
-    "name": "horttcore/wp-custom-taxonomy",
+    "name": "ralfhortt/wp-custom-taxonomy",
     "description": "A WordPress custom taxonomy helper",
     "license": "MIT",
     "version": "1.0.0",
@@ -11,7 +11,10 @@
     ],
     "autoload": {
         "psr-4": {
-            "Horttcore\\CustomTaxonomy\\": "src/"
+            "RalfHortt\\CustomTaxonomy\\": "src/"
         }
+    },
+    "require": {
+        "ralfhortt/translator-service": "^1.0"
     }
 }
