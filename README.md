@@ -12,7 +12,9 @@ Extend the abstract class `Taxonomy` and overwrite following methods:
 * `getLabels()`
 
 The extending class _MUST_ define protected class variable `slug`
+
 The extending class _MUST_ define protected class variable `postTypes`
+
 The extending class _CAN_ define protected class variable  `useFilters`
 
 ### Example
